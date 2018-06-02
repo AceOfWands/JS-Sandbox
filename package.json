@@ -1,0 +1,31 @@
+{
+  "name": "js-sandbox",
+  "version": "1.0.0",
+  "description": "A pure Javascript library for code evalutation in limited and isolated dom part and context",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndXD/JS-Sandbox.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Sandbox",
+    "JS",
+    "Isolation",
+    "library"
+  ],
+  "author": "Andrea Postiglione",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AndXD/JS-Sandbox/issues"
+  },
+  "homepage": "https://github.com/AndXD/JS-Sandbox#readme",
+  "dependencies": {
+    "webpack-merge": "^4.1.2"
+  }
+}
