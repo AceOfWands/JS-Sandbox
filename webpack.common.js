@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		'js-sandbox': './src/js-sandbox.js'
+		'js-sandbox': './src/Sandbox.js'
 	},
 	output: {
 		filename: '[name].js',

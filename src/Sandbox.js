@@ -1,4 +1,4 @@
-class Sandbox{
+export default class Sandbox{
 	constructor(domStartNode = null, startingGlobal = null){
 		this.globalContext = startingGlobal || {};
 		this.dom = domStartNode || document;
