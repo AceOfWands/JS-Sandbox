@@ -2,7 +2,7 @@
   "name": "js-sandbox",
   "version": "1.0.0",
   "description": "A pure Javascript library for code evalutation in limited and isolated dom part and context",
-  "main": "index.js",
+  "main": "./src/Sandbox.js",
   "scripts": {
     "test": "webpack --config webpack.test.js && mocha test/temp/*.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
