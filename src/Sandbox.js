@@ -71,12 +71,12 @@ export default class Sandbox{
 	}
 	execCode(code, newcontext = this.globalContext){
 		code = code.replace(this.ownerDocDetectRegex, '.s_ownerDocument');
-		(function(window, document, code) {
+		return (function(window, document, code) {
 			var globalScopeInit = '';
 			for(var x in window)
 				globalScopeInit += 'var '+x+' = window["'+x+'"];';
 			Node.prototype.s_ownerDocument = document;
-			eval(globalScopeInit+code);
+			return eval(globalScopeInit+code);
 		}.bind(newcontext))(this.globalContextProxy, this.domProxy, code);
 	}
 	execFunction(func, args, newcontext = this.globalContext){
