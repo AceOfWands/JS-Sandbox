@@ -1,3 +1,5 @@
+import SandboxException from './SandboxException.js';
+
 export default class Sandbox{
 	constructor(domStartNode = null, startingGlobal = null){
 		this.globalContext = startingGlobal || {};
@@ -80,7 +82,7 @@ export default class Sandbox{
 		}.bind(newcontext))(this.globalContextProxy, this.domProxy, code);
 	}
 	execFunction(func, args, newcontext = this.globalContext){
-		if(!(func instanceof Function)) throw new Exception("Object passed is not a function");
+		if(!(func instanceof Function)) throw new SandboxException("Object passed is not a function");
 		return (function(window, document, owDocRegEx, func, args) {
 			var globalScopeInit = '';
 			for(var x in window)
@@ -94,7 +96,7 @@ export default class Sandbox{
 		}.bind(newcontext))(this.globalContextProxy, this.domProxy, this.ownerDocDetectRegex, func, args);
 	}
 	execMethod(meth, args, obj){
-		if(!(obj[meth] instanceof Function)) throw new Exception(meth + " is not a method");
+		if(!(obj[meth] instanceof Function)) throw new SandboxException(meth + " is not a method");
 		var func_str = obj[meth].toString();
 		if(!func_str.startsWith('function'))
 			func_str = 'function ' + func_str;
