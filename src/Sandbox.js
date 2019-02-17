@@ -75,8 +75,10 @@ export default class Sandbox{
 		code = code.replace(this.ownerDocDetectRegex, '.s_ownerDocument');
 		return (function(window, document, code) {
 			var globalScopeInit = '';
+			var regularVariableNameRegex = /^[\p{L}\p{Nl}$_][\p{L}\p{Nl}$\p{Mn}\p{Mc}\p{Nd}\p{Pc}]*$/g;
 			for(var x in window)
-				globalScopeInit += 'var '+x+' = window["'+x+'"];';
+				if(regularVariableNameRegex.test(x))
+					globalScopeInit += 'var '+x+' = window["'+x+'"];';
 			Node.prototype.s_ownerDocument = document;
 			return eval(globalScopeInit+code);
 		}.bind(newcontext))(this.globalContextProxy, this.domProxy, code);
@@ -85,8 +87,10 @@ export default class Sandbox{
 		if(!(func instanceof Function) && !(typeof func == 'function')) throw new SandboxException("Object passed is not a function");
 		return (function(window, document, owDocRegEx, func, args) {
 			var globalScopeInit = '';
+			var regularVariableNameRegex = /^[\p{L}\p{Nl}$_][\p{L}\p{Nl}$\p{Mn}\p{Mc}\p{Nd}\p{Pc}]*$/g;
 			for(var x in window)
-				globalScopeInit += 'var '+x+' = window["'+x+'"];';
+				if(regularVariableNameRegex.test(x))
+					globalScopeInit += 'var '+x+' = window["'+x+'"];';
 			var func_str = func.toString();
 			if(!func_str.startsWith('function'))
 				func_str = 'function ' + func_str;
@@ -106,8 +110,10 @@ export default class Sandbox{
 		func_str = func_str.replace(this.ownerDocDetectRegex, '.s_ownerDocument');
 		return (function(window, document, func_str, args) {
 			var globalScopeInit = '';
+			var regularVariableNameRegex = /^[\p{L}\p{Nl}$_][\p{L}\p{Nl}$\p{Mn}\p{Mc}\p{Nd}\p{Pc}]*$/g;
 			for(var x in window)
-				globalScopeInit += 'var '+x+' = window["'+x+'"];';
+				if(regularVariableNameRegex.test(x))
+					globalScopeInit += 'var '+x+' = window["'+x+'"];';
 			globalScopeInit += 'var __super__ = Object.getPrototypeOf(Object.getPrototypeOf(this));';
 			var indx = func_str.indexOf('{') +1;
 			Node.prototype.s_ownerDocument = document;

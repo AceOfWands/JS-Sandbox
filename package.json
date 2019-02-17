@@ -29,6 +29,6 @@
   "devDependencies": {
     "browser-env": "^3.2.5",
     "mocha": "^5.2.0",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.2.1"
   }
 }
