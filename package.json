@@ -4,7 +4,7 @@
   "description": "A pure Javascript library for code evalutation in limited and isolated dom part and context",
   "main": "./src/Sandbox.js",
   "scripts": {
-    "test": "webpack --config webpack.test.js && mocha test/temp/*.js",
+    "test": "webpack --config webpack.test.js && mocha test/build/*.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -27,8 +27,11 @@
   "homepage": "https://github.com/AndXD/JS-Sandbox#readme",
   "dependencies": {},
   "devDependencies": {
-    "browser-env": "^3.2.5",
+    "browser-env": "^3.3.0",
     "mocha": "^5.2.0",
-    "webpack-merge": "^4.2.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }
