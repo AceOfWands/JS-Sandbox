@@ -1,6 +1,6 @@
 {
   "name": "js-sandbox",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A pure Javascript library for code evalutation in limited and isolated dom part and context",
   "main": "./src/Sandbox.js",
   "scripts": {
